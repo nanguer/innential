@@ -1,0 +1,19 @@
+.option__container {
+  display: flex;
+  align-items: center;
+  height: $option-height;
+  margin-left: 40px;
+}
+
+.option__name {
+  position: absolute;
+  margin-left: 40px;
+}
+
+.option__icon-container {
+  align-self: center;
+}
+
+.option__icon {
+  @include icons;
+}
