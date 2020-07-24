@@ -1,9 +1,17 @@
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   line-height: 22px;
   color: $main-font-color;
   background-color: #fff;
+}
+
+ul {
+  display: grid;
+  list-style: none;
+  padding: 0;
+  margin-left: 84px;
+  cursor: pointer;
 }
 
 .App {
@@ -11,8 +19,7 @@
 }
 
 .sidebar {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   height: 1190px;
   width: 276px;
 }
@@ -31,6 +38,6 @@
   margin-left: 40px;
 }
 
-// .options {
-//   margin: $options-margin;
-// }
+.options {
+  @include flex-column;
+}

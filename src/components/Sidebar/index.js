@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Option from './Option';
 import options from './options';
 import Logo from '../../assets/innential-logo-purple.png';
@@ -6,9 +6,6 @@ import Logo from '../../assets/innential-logo-purple.png';
 const Sidebar = () => {
   const [optionActive, setOptionActive] = useState('Dashboard')
 
-  useEffect(()=>{
-    console.log(optionActive)
-  }, [optionActive])
 
   return (
     <div className="sidebar">

@@ -1,16 +1,22 @@
 .option__container {
-  display: flex;
+  @include flex-column;
+
   align-items: center;
-  // height: $option-height;
   margin: $option-margin;
   &:hover {
     cursor: pointer;
   }
 }
 
+.option__title-container {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+}
+
 .option__name {
-  position: absolute;
-  margin-left: 40px;
+  @include onTop;
+  margin-left: 24px;
 }
 
 .option__icon-container {
@@ -20,4 +26,15 @@
 
 .option__icon {
   @include icons;
+  @include onTop;
+}
+
+.transparency {
+  position: absolute;
+  left: 7px;
+  top: 185px;
+  height: 66px;
+  width: 277px;
+  background-color: $secondary;
+  opacity: 0;
 }

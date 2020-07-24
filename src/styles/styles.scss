@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-@import './settings';
-@import './mixins';
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import "./settings";
+@import "./mixins";
 
-@import '../components/Sidebar/style';
-@import '../components/Sidebar/Option/style';
+@import "../components/Submenu/style";
+@import "../components/Sidebar/style";
+@import "../components/Sidebar/Option/style";

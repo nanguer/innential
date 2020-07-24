@@ -20,4 +20,5 @@ import { ReactComponent as FlagIcon } from './icons/flag.svg';
       name: 'Goals',
       Icon: FlagIcon,
     },
+   
   ];

@@ -2,3 +2,13 @@
   height: 20px;
   width: 20px;
 }
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin onTop {
+  z-index: 1;
+  background-color: transparent;
+}
