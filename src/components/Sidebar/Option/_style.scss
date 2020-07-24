@@ -1,8 +1,11 @@
 .option__container {
   display: flex;
   align-items: center;
-  height: $option-height;
-  margin-left: 40px;
+  // height: $option-height;
+  margin: $option-margin;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .option__name {
@@ -11,6 +14,7 @@
 }
 
 .option__icon-container {
+  display: flex;
   align-self: center;
 }
 
