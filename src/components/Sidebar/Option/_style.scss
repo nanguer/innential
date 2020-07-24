@@ -12,11 +12,13 @@
   display: flex;
   flex-direction: row;
   align-self: flex-start;
+  background-color: transparent;
 }
 
 .option__name {
   @include onTop;
   margin-left: 24px;
+  white-space: nowrap;
 }
 
 .option__icon-container {
@@ -34,7 +36,7 @@
   left: 7px;
   top: 185px;
   height: 66px;
-  width: 277px;
+  // width: 277px;
   background-color: $secondary;
   opacity: 0;
 }

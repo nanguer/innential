@@ -12,3 +12,10 @@
   z-index: 1;
   background-color: transparent;
 }
+
+@mixin title {
+  display: flex;
+  height: 110px;
+  align-items: center;
+  margin-left: 40px;
+}

@@ -31,11 +31,13 @@ ul {
   margin: $options-margin;
 }
 
+.menu {
+  @include title;
+}
+
 .title {
-  display: flex;
-  height: 110px;
-  align-items: center;
-  margin-left: 40px;
+  @include title;
+  position: absolute;
 }
 
 .options {

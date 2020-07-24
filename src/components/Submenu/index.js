@@ -1,46 +1,46 @@
-import React, {useEffect} from 'react';
+import React from 'react';
+import { useSpring, animated } from 'react-spring';
+import subOptions from './submenuOptions';
 import PropTypes from 'prop-types';
 
-const Submenu = ({optionActive, setOptionActive, showSubmenu}) => {
-    
-useEffect(()=>{
-    console.log(showSubmenu)
-},[showSubmenu])
-    const subOptions = [
-        'My Learning', 'Books', 'Articles', 'Workshops'
-    ]
-    const selectedStyle ={
-        color:'#5a55ab',
-        borderRight: '2px solid #5a55ab'
-    }
+const Submenu = ({ optionActive, setOptionActive, showSubmenu }) => {
+  const style = useSpring({
+    height: showSubmenu ? 'unset' : 0,
+    opacity: showSubmenu ? 1 : 0,
+    display: showSubmenu ? 'unset' : 'none',
+  });
 
-    const hideStyles ={ 
-        height:'0',
-        opacity:'0',
-        display:'none'
-    }
+  const activeStyle = {
+    color: '#5a55ab',
+    borderRight: '2px solid #5a55ab',
+  };
 
-    const handleSelect = (option)=> {
-        setOptionActive(option)
-    }
+  const handleSelect = (option) => {
+    setOptionActive(option);
+  };
 
-
-    return (
-        <div className="submenu" style={showSubmenu?null:hideStyles}>
-            <ul>
-            {subOptions.map((option, i)=>(
-               <li key={i} style={optionActive===option?selectedStyle:null} className='submenu__option' onClick={()=>handleSelect(option)}>{option}</li>
-           ))}    
-            </ul>
-          
-        </div>
-    )
-}
+  return (
+    <animated.div className="submenu" style={style}>
+      <ul>
+        {subOptions.map((option, i) => (
+          <li
+            key={i}
+            style={optionActive === option ? activeStyle : null}
+            className="submenu__option"
+            onClick={() => handleSelect(option)}
+          >
+            {option}
+          </li>
+        ))}
+      </ul>
+    </animated.div>
+  );
+};
 
 Submenu.propTypes = {
-    showSubmenu: PropTypes.bool,
-    optionActive: PropTypes.string,
-    setOptionActive: PropTypes.func
-}
+  showSubmenu: PropTypes.bool,
+  optionActive: PropTypes.string,
+  setOptionActive: PropTypes.func,
+};
 
-export default Submenu
+export default Submenu;
