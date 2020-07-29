@@ -15,19 +15,17 @@ const Option = ({ Icon, name, optionActive, setOptionActive, hide }) => {
   }, [isLearning, name]);
 
   useEffect(() => {
-    if (hide) setShowSubmenu(false);
-  }, [hide, setShowSubmenu]);
+    if (hide && isLearning) setShowSubmenu(false);
+  }, [hide, setShowSubmenu, isLearning]);
+
+  useEffect(() => {
+    setShowSubmenu(subOptions.includes(optionActive));
+  }, [setShowSubmenu, optionActive]);
 
   const handleSelectOption = (option) => {
-    const optionToBeSet = isLearning ? 'My Learning' : option;
+    const isOptionLearning = option === 'Learning';
+    const optionToBeSet = isOptionLearning ? 'My Learning' : option;
     setOptionActive(optionToBeSet);
-    if (isLearning) {
-      setShowSubmenu(!showSubmenu);
-      //the code below doesn't work, couldn't figure out why.. it's suppoused to hide the submenu
-      //if the user clicks outside the submenu options.
-    } else if (!subOptions.includes(option) || option !== 'My Learning') {
-      setShowSubmenu(false);
-    }
   };
 
   const style = useSpring({
@@ -59,7 +57,15 @@ const Option = ({ Icon, name, optionActive, setOptionActive, hide }) => {
               stroke={selected ? '#5a55ab' : '#556685'}
             />
           </div>
-          <animated.div className="option__name" style={optionNameStyle}>
+          <animated.div
+            className="option__name"
+            //pending fix this code: Set "Learning" with active style
+            style={
+              subOptions.includes(name)
+                ? { ...optionNameStyle, activeStyle }
+                : optionNameStyle
+            }
+          >
             {name}
           </animated.div>
         </div>
